@@ -1,0 +1,49 @@
+// components/CandlestickChart.tsx
+"use client";
+
+import React from 'react';
+import dynamic from 'next/dynamic';
+import { ApexOptions } from 'apexcharts';
+
+const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
+
+interface CandlestickChartProps {
+  data: {
+    x: string;
+    y: [number, number, number, number];
+  }[];
+}
+
+const CandlestickChart: React.FC<CandlestickChartProps> = ({ data }) => {
+  const options: ApexOptions = {
+    chart: {
+      type: 'candlestick',
+    },
+    title: {
+      text: 'Apple Stock Candlestick Chart',
+      align: 'left'
+    },
+    xaxis: {
+      type: 'datetime'
+    },
+    yaxis: {
+      tooltip: {
+        enabled: true
+      }
+    }
+  };
+
+  const series = [
+    {
+      data
+    }
+  ];
+
+  return (
+    <div>
+      <ApexChart options={options} series={series} type="candlestick" height={350} />
+    </div>
+  );
+};
+
+export default CandlestickChart;
