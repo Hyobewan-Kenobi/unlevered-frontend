@@ -9,19 +9,21 @@ const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 interface CandlestickChartProps {
   data: {
-    x: string;
+    x: number;
     y: [number, number, number, number];
   }[];
+  
 }
 
 const CandlestickChart: React.FC<CandlestickChartProps> = ({ data }) => {
   const options: ApexOptions = {
     chart: {
       type: 'candlestick',
+      foreColor: '#ffffff'
     },
     title: {
-      text: 'Apple Stock Candlestick Chart',
-      align: 'left'
+      text: 'Apple Inc. (AAPL)',
+      align: 'left',
     },
     xaxis: {
       type: 'datetime'

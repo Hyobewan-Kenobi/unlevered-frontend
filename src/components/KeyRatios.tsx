@@ -24,17 +24,17 @@ const KeyRatios: React.FC<{ data: any }> = ({ data }) => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Key Ratios</h2>
+      <h2 className="text-2xl font-bold mb-4 text-white">Key Ratios</h2>
       <ul>
-        <li>Market Cap: {data.market_cap}</li>
-        <li>Shares Outstanding: {data.shares_outstanding}</li>
-        <li>P/E Ratio: {data.pe_ratio}</li>
-        <li>P/S Ratio: {data.ps_ratio}</li>
-        <li>P/B Ratio: {data.pb_ratio}</li>
-        <li>PEG Ratio: {data.peg_ratio}</li>
-        <li>Current Ratio: {data.current_ratio}</li>
-        <li>Debt to Equity Ratio: {data.debt_to_equity_ratio}</li>
-        <li>EPS: {data.eps}</li>
+        <li><b>Market Cap:</b> {data.market_cap}</li>
+        <li><b>Shares Outstanding:</b> {data.shares_outstanding}</li>
+        <li><b>P/E Ratio:</b> {data.pe_ratio}</li>
+        <li><b>P/S Ratio:</b> {data.ps_ratio}</li>
+        <li><b>P/B Ratio:</b> {data.pb_ratio}</li>
+        <li><b>PEG Ratio:</b> {data.peg_ratio}</li>
+        <li><b>Current Ratio:</b> {data.current_ratio}</li>
+        <li><b>Debt to Equity Ratio:</b> {data.debt_to_equity_ratio}</li>
+        <li><b>EPS:</b> {data.eps}</li>
       </ul>
     </div>
   );

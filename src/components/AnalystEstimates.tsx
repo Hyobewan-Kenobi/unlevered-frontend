@@ -16,7 +16,7 @@ const AnalystEstimates: React.FC<{ estimates: any }> = ({ estimates }) => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Analyst Estimates</h2>
+      <h2 className="text-2xl font-bold mb-4 text-white">Analyst Estimates</h2>
       <ul>
         {Object.entries(estimates).map(([bank, estimate]) => (
           <li key={bank}>{bank}: {estimate}</li>
