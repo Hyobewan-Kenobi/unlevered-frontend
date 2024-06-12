@@ -30,21 +30,21 @@ const Home = () => {
     fetchData();
   }, []);
 
-  const [stockData, setStockData] = useState([]);
+  // const [stockData, setStockData] = useState([]);
 
-  useEffect(() => {
-    const fetchStockData = async () => {
-      try {
-        const response = await axios.get('/apple_stock_data.csv');
-        const parsedData = parseCSVData(response.data);
-        setStockData(parsedData);
-      } catch (error) {
-        console.error('Error fetching stock data:', error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchStockData = async () => {
+  //     try {
+  //       const response = await axios.get('/apple_stock_data.csv');
+  //       const parsedData = parseCSVData(response.data);
+  //       setStockData(parsedData);
+  //     } catch (error) {
+  //       console.error('Error fetching stock data:', error);
+  //     }
+  //   };
 
-    fetchStockData();
-  }, []);
+  //   fetchStockData();
+  // }, []);
 
   return (
     <div className='bg-slate-800 text-slate-400'>
