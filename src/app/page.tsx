@@ -10,8 +10,8 @@ import Footer from '@/components/Footer';
 
 // Define the types for the financial data
 interface AnalystEstimatesData {
-  estimate: string;
-  value: number;    
+  bank: string;
+  estimate: number;
 }
 
 interface FinancialData {
@@ -29,6 +29,7 @@ const Home = () => {
 
     fetchData();
   }, []);
+  
 
   return (
     <div className='bg-slate-800 text-slate-400'>
