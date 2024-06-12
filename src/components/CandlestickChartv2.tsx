@@ -266,7 +266,8 @@ class App extends Component {
       options: {
         chart: {
           id: "candlestick",
-          height: '500px'
+          height: '100px',
+          foreColor: '#ffffff'
         },
         xaxis: {
             type: 'datetime'
@@ -283,14 +284,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app m-12">
+      <div className="app">
         <div className="row">
           <div className="mixed-chart">
             <Chart
               options={this.state.options}
               series={this.state.series}
               type="candlestick"
-              width="100%"
             />
           </div>
         </div>
