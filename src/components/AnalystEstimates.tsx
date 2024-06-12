@@ -1,25 +1,18 @@
-"use client";
-
-// src/components/AnalystEstimates.tsx
 import React from 'react';
 
 interface AnalystEstimatesProps {
-  estimates: {
-    [key: string]: number;
-  };
+  estimates: Record<string, number>;
 }
 
-const AnalystEstimates: React.FC<{ estimates: any }> = ({ estimates }) => {
-  if (!estimates) {
-    return <div>Loading...</div>;
-  }
-
+const AnalystEstimates: React.FC<AnalystEstimatesProps> = ({ estimates }) => {
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4 text-white">Analyst Estimates</h2>
+      <h2>Analyst Estimates</h2>
       <ul>
         {Object.entries(estimates).map(([bank, estimate]) => (
-          <li key={bank}>{bank}: {estimate}</li>
+          <li key={bank}>
+            {bank}: {estimate}
+          </li>
         ))}
       </ul>
     </div>

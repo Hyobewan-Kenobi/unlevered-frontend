@@ -259,7 +259,7 @@ const parsedData = parseCSVData(sampleCSVData);
 console.log(parsedData);
 
 class App extends Component {
-  constructor(props) {
+  constructor(props: {}) {
     super(props);
 
     this.state = {
