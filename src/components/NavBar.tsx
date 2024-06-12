@@ -1,6 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-
-
 export default () => {
 
   const [state, setState] = useState(false)
@@ -8,7 +6,6 @@ export default () => {
 
   // Replace javascript:void(0) path with your path
   const navigation = [
-      { title: "About Us", path: "javascript:void(0)" },
       { title: "Careers", path: "javascript:void(0)" },
       { title: "Blog", path: "javascript:void(0)" },
       { title: "FAQ", path: "javascript:void(0)" }
