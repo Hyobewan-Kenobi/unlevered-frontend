@@ -4,9 +4,9 @@ export default () => {
 
     const [state, setState] = useState(false)
 
-    // Replace javascript:void(0) paths with your paths
+    // Replace paths with your paths
     const navigation = [
-    { title: "Careers", path: "javascript:void(0)" },
+      { title: "Careers", path: "javascript:void(0)" },
       { title: "Blog", path: "javascript:void(0)" },
       { title: "FAQ", path: "javascript:void(0)" }
     ]

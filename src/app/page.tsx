@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import KeyRatios from '../components/KeyRatios';
 import AnalystEstimates from '../components/AnalystEstimates';
 import { fetchFinancialData } from '../lib/fetchData';
-import CandleChartTwo from '../components/CandlestickChartv2';
+// import CandleChartTwo from '../components/CandlestickChartv2';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import React from 'react';
@@ -63,7 +63,7 @@ const Home = () => {
       <div className='flex'>
         <div className='flex-auto w-2/3 p-4'>
           <h1 className='font-bold text-4xl pl-4 text-white'>Apple Inc. (AAPL)</h1>
-          <CandleChartTwo />
+          {/* <CandleChartTwo /> */}
         </div>
         <div className='flex-auto w-1/4 p-4'>
           {data ? (
