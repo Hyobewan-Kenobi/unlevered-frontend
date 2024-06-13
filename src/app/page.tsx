@@ -6,6 +6,7 @@ import { fetchFinancialData } from '../lib/fetchData';
 import CandleChartTwo from '../components/CandlestickChartv2';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
+import React from 'react';
 
 // Define the types for the financial data
 interface AnalystEstimatesData {
