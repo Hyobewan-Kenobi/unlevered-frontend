@@ -86,7 +86,7 @@ const [stockData, setStockData] = useState<any>([]);
           <CandlestickChart data={stockData} />
           {/* <CandleChartTwo /> */}
         </div>
-        <div className='flex-auto w-1/4 p-4'>
+        <div className=' p-4'>
           {data ? (
             <>
               <div className='pb-4'>
