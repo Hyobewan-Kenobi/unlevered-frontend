@@ -12,29 +12,31 @@ export default () => {
   ]
 
   useEffect(() => {
-    const body = document.body;
+    if (typeof window !== 'undefined') {
+      const body = document.body;
 
-    // Disable scrolling
-    const customBodyStyle = ['overflow-hidden', 'lg:overflow-visible'];
-    if (state) body.classList.add(...customBodyStyle);
-    // Enable scrolling
-    else body.classList.remove(...customBodyStyle);
+      // Disable scrolling
+      const customBodyStyle = ['overflow-hidden', 'lg:overflow-visible'];
+      if (state) body.classList.add(...customBodyStyle);
+      // Enable scrolling
+      else body.classList.remove(...customBodyStyle);
 
-    // Sticky strick
-    const customStyle = ['sticky-nav', 'fixed', 'border-b'];
-    const handleScroll = () => {
-      if (navRef.current) {
-        if (window.scrollY > 80) navRef.current.classList.add(...customStyle);
-        else navRef.current.classList.remove(...customStyle);
-      }
-    };
+      // Sticky strick
+      const customStyle = ['sticky-nav', 'fixed', 'border-b'];
+      const handleScroll = () => {
+        if (navRef.current) {
+          if (window.scrollY > 80) navRef.current.classList.add(...customStyle);
+          else navRef.current.classList.remove(...customStyle);
+        }
+      };
 
-    window.addEventListener('scroll', handleScroll);
+      window.addEventListener('scroll', handleScroll);
 
-    // Cleanup function
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+      // Cleanup function
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
   }, [state]);
     
 
