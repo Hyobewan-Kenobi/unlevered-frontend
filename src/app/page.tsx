@@ -59,8 +59,8 @@ const Home = () => {
   }, []);
 
 //stock data
-type DataType = { x: number; y: [number, number, number, number] };  
-const [stockData, setStockData] = useState<DataType[]>([]);
+
+const [stockData, setStockData] = useState<any>([]);
 
   useEffect(() => {
     const fetchStockData = async () => {
