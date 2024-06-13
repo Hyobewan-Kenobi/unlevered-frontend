@@ -1,4 +1,4 @@
-// src/lib/parseCSV.ts
+
 export const parseCSVData = (csv: string) => {
   const lines = csv.split('\n');
   const result = [];

@@ -7,6 +7,9 @@ import { fetchFinancialData } from '../lib/fetchData';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import React from 'react';
+import CandlestickChart from '../components/CandlestickChart';
+import axios from 'axios';
+import { parseCSVData } from '@/lib/parseCSV';
 
 // Define the types for the financial data
 interface AnalystEstimatesData {
@@ -55,6 +58,24 @@ const Home = () => {
     fetchData();
   }, []);
 
+//stock data
+type DataType = { x: number; y: [number, number, number, number] };  
+const [stockData, setStockData] = useState<DataType[]>([]);
+
+  useEffect(() => {
+    const fetchStockData = async () => {
+      try {
+        const response = await axios.get('/apple_stock_data.csv');
+        const parsedData = parseCSVData(response.data);
+        setStockData(parsedData);
+      } catch (error) {
+        console.error('Error fetching stock data:', error);
+      }
+    };
+
+    fetchStockData();
+  }, []);
+
   
 
   return (
@@ -63,6 +84,7 @@ const Home = () => {
       <div className='flex'>
         <div className='flex-auto w-2/3 p-4'>
           <h1 className='font-bold text-4xl pl-4 text-white'>Apple Inc. (AAPL)</h1>
+          <CandlestickChart data={stockData} />
           {/* <CandleChartTwo /> */}
         </div>
         <div className='flex-auto w-1/4 p-4'>
