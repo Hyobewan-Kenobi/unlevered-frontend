@@ -83,7 +83,6 @@ const [stockData, setStockData] = useState<any>([]);
       <NavBar />
       <div className='flex'>
         <div className='flex-auto w-2/3 p-4'>
-          <h1 className='font-bold text-4xl pl-4 text-white'>Apple Inc. (AAPL)</h1>
           <CandlestickChart data={stockData} />
           {/* <CandleChartTwo /> */}
         </div>
