@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 export default () => {
 
-  const [state, setState] = useState(false)
-  const navRef = useRef()
+  const [state, setState] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
 
   // Replace javascript:void(0) path with your path
   const navigation = [
@@ -12,22 +12,30 @@ export default () => {
   ]
 
   useEffect(() => {
-      
-      const body = document.body
+    const body = document.body;
 
-      // Disable scrolling
-      const customBodyStyle = ["overflow-hidden", "lg:overflow-visible"]
-      if (state) body.classList.add(...customBodyStyle)
-      // Enable scrolling
-      else body.classList.remove(...customBodyStyle)
+    // Disable scrolling
+    const customBodyStyle = ['overflow-hidden', 'lg:overflow-visible'];
+    if (state) body.classList.add(...customBodyStyle);
+    // Enable scrolling
+    else body.classList.remove(...customBodyStyle);
 
-      // Sticky strick
-      const customStyle = ["sticky-nav", "fixed", "border-b"]
-      window.onscroll = () => {
-          if (window.scrollY > 80) navRef.current.classList.add(...customStyle)
-          else navRef.current.classList.remove(...customStyle)
+    // Sticky strick
+    const customStyle = ['sticky-nav', 'fixed', 'border-b'];
+    const handleScroll = () => {
+      if (navRef.current) {
+        if (window.scrollY > 80) navRef.current.classList.add(...customStyle);
+        else navRef.current.classList.remove(...customStyle);
       }
-    }, [state])
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [state]);
     
 
   return (
