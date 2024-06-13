@@ -1,5 +1,4 @@
 "use client";
-// src/app/page.tsx
 import { useEffect, useState } from 'react';
 import KeyRatios from '../components/KeyRatios';
 import AnalystEstimates from '../components/AnalystEstimates';
@@ -29,6 +28,32 @@ const Home = () => {
 
     fetchData();
   }, []);
+
+  const [transformedEstimates, setTransformedEstimates] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      const data = {
+        analyst_estimates: [
+          { bank: 'Citibank', estimate: 6.5 },
+          { bank: 'Goldman Sachs', estimate: 7.9 },
+          { bank: 'Morgan Stanley', estimate: 9.87 },
+        ] as AnalystEstimatesData[],
+      };
+
+      // Transform the data
+      const transformed = data.analyst_estimates.reduce((acc, item) => {
+        acc[item.bank] = item.estimate;
+        return acc;
+      }, {} as Record<string, number>);
+
+      setTransformedEstimates(transformed);
+    };
+
+    fetchData();
+  }, []);
+
   
 
   return (
@@ -46,7 +71,7 @@ const Home = () => {
                 <KeyRatios data={data} />
               </div>
               <div>
-                <AnalystEstimates estimates={data.analyst_estimates} />
+                <AnalystEstimates estimates={transformedEstimates} />
               </div>
             </>
           ) : (

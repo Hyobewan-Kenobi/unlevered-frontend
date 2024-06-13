@@ -1,9 +1,6 @@
 // src/lib/fetchData.ts
 import axios from 'axios';
 
-interface AnalystEstimates {
-  analyst_estimates: any; // Define the correct type here
-}
 
 export const fetchFinancialData = async () => {
   try {
