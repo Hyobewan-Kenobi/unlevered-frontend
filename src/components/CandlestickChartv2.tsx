@@ -258,7 +258,12 @@ const sampleCSVData = `Date,Open,High,Low,Close,Adj Close,Volume
 const parsedData = parseCSVData(sampleCSVData);
 console.log(parsedData);
 
-class App extends Component {
+interface CandlestickChartState {
+  options: any;
+  series: any[];
+}
+
+class App extends Component<{}, CandlestickChartState> {
   constructor(props: {}) {
     super(props);
 
