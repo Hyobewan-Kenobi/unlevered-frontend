@@ -11,35 +11,6 @@ export default () => {
       { title: "FAQ", path: "javascript:void(0)" }
   ]
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const body = document.body;
-
-      // Disable scrolling
-      const customBodyStyle = ['overflow-hidden', 'lg:overflow-visible'];
-      if (state) body.classList.add(...customBodyStyle);
-      // Enable scrolling
-      else body.classList.remove(...customBodyStyle);
-
-      // Sticky strick
-      const customStyle = ['sticky-nav', 'fixed', 'border-b'];
-      const handleScroll = () => {
-        if (navRef.current) {
-          if (window.scrollY > 80) navRef.current.classList.add(...customStyle);
-          else navRef.current.classList.remove(...customStyle);
-        }
-      };
-
-      window.addEventListener('scroll', handleScroll);
-
-      // Cleanup function
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }
-  }, [state]);
-    
-
   return (
       <nav ref={navRef} className="bg-slate-800 w-full top-0 z-20 py-4">
           <div className="items-center px-4 max-w-screen-xl mx-auto md:px-8 lg:flex">
